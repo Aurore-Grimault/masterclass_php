@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     require("../config/db.php");
     $addname = filter_var($_POST['addname'], FILTER_SANITIZE_SPECIAL_CHARS);
     print_r($user['id']);
-    $stmt = $dbh->prepare('UPDATE login SET name=:name WHERE id=:id');
+    $stmt = $dbh->prepare('UPDATE user SET name=:name WHERE id=:id');
     $stmt -> bindValue(':name',$_POST['name'],PDO::PARAM_STR);
     $stmt -> bindValue(':id',$_POST['id'],PDO::PARAM_INT);
    
